@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memset.c                                      .::    .:/ .      .::   */
+/*   ft_memcpy.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 16:31:12 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 16:31:54 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/10 17:45:34 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/10 19:55:54 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	size_t	i;
+	char	*d;
+	char	*s;
 
+	d = (char *)dst;
+	s = (char *)src;
 	i = 0;
-	ptr = (unsigned char *)b;
-	while (i < len)
+	while (i < n)
 	{
-		ptr[i] = c;
+		d[i] = s[i];
 		i++;
 	}
-	return (void*)(b);
+	return (dst);
 }
