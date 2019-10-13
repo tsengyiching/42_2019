@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
+/*   ft_bzero.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/08 12:39:07 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/09 16:33:54 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/10 16:54:58 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/13 13:32:27 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+#include <string.h>
 
-int		ft_isalpha(int c);
-int		ft_isascii(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isprint(int c);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
-size_t	ft_strlen(const char *s);
-#endif
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*ptr;
+
+	i = 0;
+	ptr = (unsigned char *)s;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+}
