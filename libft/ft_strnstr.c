@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_memmove.c                                     .::    .:/ .      .::   */
+/*   ft_strnstr.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/14 19:15:39 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/14 20:09:58 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/10/16 12:36:04 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2019/10/16 13:41:25 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t		i;
-	char		*d;
-	char		*s;
-	char		temp[len];
+	char	*search;
+	char	*find;
+	int		needle_len;
+	size_t	i;
+	size_t	j;
 
+	search = (char *)haystack;
+	find = (char *)needle;
+	needle_len = ft_strlen(find);
+	if (needle_len == 0)
+		return (char *)haystack;
 	i = 0;
-	s = (char *)src;
-	d = (char *)dst;
-	while (i < len)
+	while (search[i])
 	{
-		temp[i] = s[i];
+		j = 0;
+		while (search[i + j] == find[j] && find[j] && i + j < len)
+		{
+			j++;
+		}
+		if (find[j] == '\0')
+			return (char *)(search + i);
 		i++;
 	}
-	i = 0;
-	while (i < len)
-	{
-		d[i] = temp[i];
-		i++;
-	}
-	return (dst);
+	return (0);
 }
