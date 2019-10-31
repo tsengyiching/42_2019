@@ -6,7 +6,7 @@
 #    By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/11 13:29:38 by yictseng     #+#   ##    ##    #+#        #
-#    Updated: 2019/10/22 16:32:51 by yictseng    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/10/31 17:54:17 by yictseng    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -75,12 +75,14 @@ all			: $(NAME)
 
 $(NAME)		: $(OBJS)
 			  ar rcs $(NAME) $(OBJS)
+			  ranlib $(NAME)
 
 bonus		: $(OBJS) $(OBJSB)
 			  ar rcs $(NAME) $(OBJS) $(OBJSB)
+			  ranlib $(NAME)
 
 %.o			: %.c $(HEADER)
-			  ${CC} ${CFLAGS} -o $@ -c $< -I ${HEADER}
+			  ${CC} ${CFLAGS} -c $< -I ${HEADER}
 
 clean		:
 			  ${RM} $(OBJS) $(OBJSB)
