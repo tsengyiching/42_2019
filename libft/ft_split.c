@@ -37,7 +37,7 @@ static void	put_arr(char **tab, char const *s, int arr, char c)
 	i = 0;
 	while (s[i] && s[i] != c)
 	{
-		tab[arr - 1][i] = s[i];
+		tab[arr][i] = s[i];
 		i++;
 	}
 }
@@ -57,10 +57,10 @@ static int	put_tab(char **tab, char const *s, char c)
 			len++;
 		if (len != 0)
 		{
-			arr++;
-			if (!(tab[arr - 1] = ft_calloc(sizeof(char), len + 1)))
+			if (!(tab[arr] = ft_calloc(sizeof(char), len + 1)))
 				return (0);
 			put_arr(tab, s, arr, c);
+			arr++;
 			s = s + len;
 		}
 		while (*s && *s == c)
